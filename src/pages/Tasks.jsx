@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { API_BASE_URL } from '../util';
 import TasksSkeleton from '../_skeletons/TasksSkeleton';
-import Pagination from './components/pagination';
+import Pagination from '../components/Pagination';
 import {
     Badge,
     Box,
