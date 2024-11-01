@@ -1,17 +1,21 @@
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-import { useState, useEffect } from "react"; 
 export const useLocalStorage = (key, defaultValue) => { 
     const [value, setValue] = useState(() => { 
-        const currentValue = localStorage.getItem(key); 
-        if (currentValue) { 
-            return JSON.parse(currentValue) 
-        } 
-        else { 
+        try {
+            const currentValue = localStorage.getItem(key); 
+            return currentValue ? JSON.parse(currentValue) : defaultValue; 
+        } catch (error) {
+            console.error("Ошибка при извлечении данных из localStorage", error);
             return defaultValue; 
-        } 
+        }
     }); 
+
     useEffect(() => { 
-        localStorage.setItem(key, JSON.stringify(value)); 
+        try {
+            localStorage.setItem(key, JSON.stringify(value)); 
+        } catch (error) {
+            console.error("Ошибка при сохранении данных в localStorage", error);
+        }
     }, [value]); 
+
     return [value, setValue]; 
-}; 
+};
