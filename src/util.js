@@ -1,4 +1,4 @@
-export const API_BASE_URL = "taskly-server-production-e0c1.up.railway.app:3000/api/v1";
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 import { useState, useEffect } from "react"; 
 export const useLocalStorage = (key, defaultValue) => { 
     const [value, setValue] = useState(() => { 
