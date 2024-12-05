@@ -1,4 +1,4 @@
-
+export const API_BASE_URL = https://taskly-server-production-e0c1.up.railway.app:8080/api/v1;
 import { useState, useEffect } from "react"; 
 export const useLocalStorage = (key, defaultValue) => { 
     const [value, setValue] = useState(() => { 
